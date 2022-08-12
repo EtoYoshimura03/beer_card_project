@@ -1,7 +1,8 @@
-import 'package:beer_card_project/domain/seriolized_products.dart';
+import 'package:beer_card_project/data/datasource/app_dependencies.dart';
+import 'package:beer_card_project/domain/seriolized_beer.dart';
 import 'package:dio/dio.dart';
 
-class ApiService {
+class ApiDatasource {
   final url = 'https://beer-live.p.rapidapi.com/top10beers';
 
   var headers = {

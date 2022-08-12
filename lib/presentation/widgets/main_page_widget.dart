@@ -12,7 +12,7 @@ class MainPageWidget extends StatefulWidget {
 }
 
 class _MainPageWidgetState extends State<MainPageWidget> {
-  int _onSelectedTab = 0;
+  int _currentIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
     _MainPageImage(),
@@ -20,9 +20,9 @@ class _MainPageWidgetState extends State<MainPageWidget> {
   ];
 
   void _onSelectTab(int index) {
-    if (_onSelectedTab == index) return;
+    if (_currentIndex == index) return;
     setState(() {
-      _onSelectedTab = index;
+      _currentIndex = index;
     });
   }
 
@@ -30,14 +30,14 @@ class _MainPageWidgetState extends State<MainPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Center(
+          title: const Center(
         child: TextForBeer(
             text: 'Пивные карты', fontSize: 24, color: AppColor.textColor),
       )),
-      body: _widgetOptions[_onSelectedTab],
+      body: _widgetOptions[_currentIndex],
       backgroundColor: AppColor.mainColor,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _onSelectedTab,
+        currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home, size: 25), label: 'Домой'),
@@ -59,7 +59,7 @@ class _MainPageImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
+    return const Image(
       height: double.infinity,
       image: BeerImages.beerCult,
       fit: BoxFit.fill,

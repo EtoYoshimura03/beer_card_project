@@ -9,10 +9,10 @@ TextStyle textStyle(double fontSize, Color color) {
 }
 
 class TextForBeer extends StatelessWidget {
-  String text;
-  double fontSize;
-  Color color;
-  TextForBeer(
+  final String text;
+  final double fontSize;
+  final Color color;
+  const TextForBeer(
       {Key? key,
       required this.text,
       required this.fontSize,

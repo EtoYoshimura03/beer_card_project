@@ -2,6 +2,8 @@ import 'package:beer_card_project/domain/beer_model.dart';
 import 'package:beer_card_project/presentation/app_color.dart';
 import 'package:beer_card_project/presentation/images.dart';
 import 'package:beer_card_project/presentation/app_text.dart';
+import 'package:beer_card_project/presentation/widgets/column_with_model_widget.dart';
+import 'package:beer_card_project/presentation/widgets/column_with_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class CardsWidget extends StatefulWidget {
@@ -68,30 +70,12 @@ class _CardsWithDataState extends State<_CardsWithData> {
                       const SizedBox(width: 30),
                       Container(
                         padding: const EdgeInsets.only(top: 40, bottom: 5),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextForBeer(
-                                text: 'Происхождение',
-                                fontSize: 14,
-                                color: AppColor.textColor),
-                            TextForBeer(
-                              text: 'Оценка',
-                              fontSize: 14,
-                              color: AppColor.textColor,
-                            ),
-                            TextForBeer(
-                                text: 'Голоса',
-                                fontSize: 14,
-                                color: AppColor.textColor)
-                          ],
-                        ),
+                        child: const ColumnWithText(),
                       ),
                       const SizedBox(width: 50),
                       Container(
                           padding: const EdgeInsets.only(top: 40, bottom: 5),
-                          child: _ColumnWithModel(index: index))
+                          child: ColumnWithModel(index: index))
                     ],
                   ),
                   Material(
@@ -103,34 +87,6 @@ class _CardsWithDataState extends State<_CardsWithData> {
                 ])),
           );
         });
-  }
-}
-
-class _ColumnWithModel extends StatelessWidget {
-  final int index;
-  const _ColumnWithModel({Key? key, required this.index}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final beer = BeerModelProvider.read(context)!.model.beers[index];
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        TextForBeer(
-            text: beer.herkunft.toString(),
-            fontSize: 12,
-            color: AppColor.textColor),
-        TextForBeer(
-            text: beer.bewertungInt.toString(),
-            fontSize: 12,
-            color: AppColor.textColor),
-        TextForBeer(
-            text: beer.votes.toString(),
-            fontSize: 12,
-            color: AppColor.textColor)
-      ],
-    );
   }
 }
 
