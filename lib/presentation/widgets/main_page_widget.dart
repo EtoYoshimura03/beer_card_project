@@ -2,6 +2,7 @@ import 'package:beer_card_project/presentation/app_color.dart';
 import 'package:beer_card_project/presentation/images.dart';
 import 'package:beer_card_project/presentation/app_text.dart';
 import 'package:beer_card_project/presentation/widgets/cards_widget.dart';
+import 'package:beer_card_project/presentation/widgets/favorite_beer_widget.dart';
 import 'package:flutter/material.dart';
 
 class MainPageWidget extends StatefulWidget {
@@ -16,7 +17,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     _MainPageImage(),
-    CardsWidget()
+    CardsWidget(),
+    FavoriteBeerWidget()
   ];
 
   void _onSelectTab(int index) {
@@ -46,7 +48,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
                 Icons.sports_bar_outlined,
                 size: 25,
               ),
-              label: 'Налить пивка')
+              label: 'Налить пивка'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_outline_sharp,
+                size: 25,
+              ),
+              label: 'Избранное')
         ],
         onTap: _onSelectTab,
       ),

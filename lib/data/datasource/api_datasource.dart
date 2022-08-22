@@ -1,5 +1,5 @@
 import 'package:beer_card_project/data/datasource/app_dependencies.dart';
-import 'package:beer_card_project/domain/seriolized_beer.dart';
+import 'package:beer_card_project/domain/serialized_beer.dart';
 import 'package:dio/dio.dart';
 
 class ApiDatasource {
@@ -11,8 +11,9 @@ class ApiDatasource {
   };
 
   Future<List<dynamic>> getHttp() async {
-    final response =
-        await Dio().get(url, options: Options(method: 'GET', headers: headers));
+    final response = await AppDependencies()
+        .dio
+        .get(url, options: Options(method: 'GET', headers: headers));
     return response.data;
   }
 

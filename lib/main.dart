@@ -1,11 +1,16 @@
+import 'package:beer_card_project/data/datasource/app_dependencies.dart';
 import 'package:beer_card_project/presentation/app_color.dart';
 import 'package:beer_card_project/presentation/app_text.dart';
-import 'package:beer_card_project/presentation/widgets/beer_details_widget.dart';
 import 'package:beer_card_project/presentation/widgets/cards_widget.dart';
 import 'package:beer_card_project/presentation/widgets/main_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  AppDependencies();
   runApp(const MyApp());
 }
 
@@ -26,8 +31,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/main_page_widget': (context) => const MainPageWidget(),
         '/cards_widget': (context) => const CardsWidget(),
-        'cards_widget/beer_details_widget': (context) =>
-            const BeerDatailsWidget()
       },
       initialRoute: '/main_page_widget',
     );

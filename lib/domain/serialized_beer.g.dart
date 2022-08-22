@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'seriolized_beer.dart';
+part of 'serialized_beer.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

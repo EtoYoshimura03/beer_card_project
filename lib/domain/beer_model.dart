@@ -1,14 +1,14 @@
 import 'package:beer_card_project/data/datasource/api_datasource.dart';
-import 'package:beer_card_project/domain/seriolized_beer.dart';
+import 'package:beer_card_project/domain/serialized_beer.dart';
 import 'package:flutter/material.dart';
 
 class BeerModel extends ChangeNotifier {
-  final apiClient = ApiDatasource();
+  final _apiClient = ApiDatasource();
   var _beers = <Beer>[];
   List<Beer> get beers => _beers;
 
   Future<void> getBeer() async {
-    final beers = await apiClient.getResponse();
+    final beers = await _apiClient.getResponse();
     _beers += beers;
     notifyListeners();
   }
