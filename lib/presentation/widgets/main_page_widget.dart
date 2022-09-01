@@ -34,7 +34,10 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       appBar: AppBar(
           title: const Center(
         child: TextForBeer(
-            text: 'Пивные карты', fontSize: 24, color: AppColor.textColor),
+            text: 'Пивные карты',
+            fontSize: 24,
+            color: AppColor.textColor,
+            maxLines: 1),
       )),
       body: _widgetOptions[_currentIndex],
       backgroundColor: AppColor.mainColor,

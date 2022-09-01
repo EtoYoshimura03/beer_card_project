@@ -12,11 +12,13 @@ class TextForBeer extends StatelessWidget {
   final String text;
   final double fontSize;
   final Color color;
+  final int maxLines;
   const TextForBeer(
       {Key? key,
       required this.text,
       required this.fontSize,
-      required this.color})
+      required this.color,
+      required this.maxLines})
       : super(key: key);
 
   @override
@@ -24,6 +26,7 @@ class TextForBeer extends StatelessWidget {
     return Text(
       text,
       style: textStyle(fontSize, color),
+      maxLines: maxLines,
     );
   }
 }

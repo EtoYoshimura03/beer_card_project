@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 
 import 'package:beer_card_project/data/datasource/app_dependencies.dart';
 import 'package:beer_card_project/domain/serialized_beer.dart';
-import 'package:beer_card_project/domain/serialized_favorite_beer.dart';
 
 class ApiFavoriteBeer {
   final String ids;
@@ -17,10 +16,10 @@ class ApiFavoriteBeer {
     return response.data;
   }
 
-  Future<List<FavoriteBeer>> getResponse() async {
+  Future<List<Beer>> getResponse() async {
     final favoriteBeers = await getHttp();
     final favoriteBeer = favoriteBeers
-        .map((dynamic e) => FavoriteBeer.fromJson(e as Map<String, dynamic>))
+        .map((dynamic e) => Beer.fromJson(e as Map<String, dynamic>))
         .toList();
     return favoriteBeer;
   }

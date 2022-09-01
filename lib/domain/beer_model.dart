@@ -1,5 +1,6 @@
 import 'package:beer_card_project/data/datasource/api_datasource.dart';
 import 'package:beer_card_project/domain/serialized_beer.dart';
+
 import 'package:flutter/material.dart';
 
 class BeerModel extends ChangeNotifier {

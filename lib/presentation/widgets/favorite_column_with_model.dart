@@ -20,13 +20,21 @@ class FavoriteColumnWithModel extends StatelessWidget {
         TextForBeer(
             text: beer.first_brewed.toString(),
             fontSize: 14,
-            color: AppColor.textColor),
+            color: AppColor.textColor,
+            maxLines: 1),
+        SizedBox(
+          width: 178,
+          child: TextForBeer(
+              text: beer.tagline.toString(),
+              fontSize: 14,
+              color: AppColor.textColor,
+              maxLines: 2),
+        ),
         TextForBeer(
-            text: beer.tagline.toString(),
+            text: beer.id.toString(),
             fontSize: 14,
-            color: AppColor.textColor),
-        TextForBeer(
-            text: beer.id.toString(), fontSize: 14, color: AppColor.textColor)
+            color: AppColor.textColor,
+            maxLines: 1)
       ],
     );
   }

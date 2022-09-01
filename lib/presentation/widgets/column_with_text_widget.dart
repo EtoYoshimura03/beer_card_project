@@ -14,13 +14,17 @@ class ColumnWithText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         TextForBeer(
-            text: 'Происхождение', fontSize: 14, color: AppColor.textColor),
+            text: 'Дата производства',
+            fontSize: 14,
+            color: AppColor.textColor,
+            maxLines: 1),
         TextForBeer(
-          text: 'Оценка',
-          fontSize: 14,
-          color: AppColor.textColor,
-        ),
-        TextForBeer(text: 'Голоса', fontSize: 14, color: AppColor.textColor)
+            text: 'Cлоган',
+            fontSize: 14,
+            color: AppColor.textColor,
+            maxLines: 1),
+        TextForBeer(
+            text: 'ID', fontSize: 14, color: AppColor.textColor, maxLines: 1)
       ],
     );
   }

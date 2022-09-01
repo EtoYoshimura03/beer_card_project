@@ -31,9 +31,12 @@ class _CardsWithData extends StatefulWidget {
 }
 
 class _CardsWithDataState extends State<_CardsWithData> {
-  void _addToFavorite(String id) async {
+  void _addToFavorite(int id) async {
     var box = await Hive.openBox<dynamic>('id');
-    await box.add(id);
+    if (box.values.any((element) => element == id)) {
+    } else {
+      box.add(id);
+    }
     print(box.values);
   }
 
@@ -67,9 +70,6 @@ class _CardsWithDataState extends State<_CardsWithData> {
                   ),
                   Row(
                     children: [
-                      const SizedBox(width: 15),
-                      Image(image: BeerImages.images[index]),
-                      const SizedBox(width: 30),
                       Container(
                         padding: const EdgeInsets.only(top: 40, bottom: 5),
                         child: const ColumnWithText(),
@@ -84,7 +84,7 @@ class _CardsWithDataState extends State<_CardsWithData> {
                       color: Colors.transparent,
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
-                        onTap: () => _addToFavorite(index.toString()),
+                        onTap: () => _addToFavorite(index + 1),
                       ))
                 ])),
           );
@@ -100,7 +100,7 @@ class _BeerName extends StatelessWidget {
   Widget build(BuildContext context) {
     final beer = BeerModelProvider.read(context)!.model.beers[index];
     return Text(
-      beer.bier.toString(),
+      beer.name.toString(),
       style: textStyle(16, AppColor.textColor),
       maxLines: 2,
       textAlign: TextAlign.center,

@@ -1,14 +1,14 @@
 import 'package:beer_card_project/data/datasource/api_favorite_beer.dart';
-import 'package:beer_card_project/domain/serialized_favorite_beer.dart';
+import 'package:beer_card_project/domain/serialized_beer.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 class FavoriteBeerModel extends ChangeNotifier {
-  var _favoriteBeers = <FavoriteBeer>[];
-  List<FavoriteBeer> get favoriteBeers => _favoriteBeers.toList();
+  var _favoriteBeers = <Beer>[];
+  List<Beer> get favoriteBeers => _favoriteBeers.toList();
 
   Future<void> getFavoriteBeer() async {
-    final box = await Hive.openBox<dynamic>('favorite');
+    final box = await Hive.openBox<dynamic>('id');
     print(box.values);
     final String ids = box.values.join('|');
     // Когда берёшь по айди, у этой апишки можно передать сразу несколько, разделив | этим, хз правильно ли я тут сделал или нет
