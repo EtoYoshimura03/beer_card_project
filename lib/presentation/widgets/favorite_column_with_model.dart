@@ -4,9 +4,10 @@ import 'package:beer_card_project/presentation/app_text.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteColumnWithModel extends StatelessWidget {
-  final int index;
-  const FavoriteColumnWithModel({Key? key, required this.index})
+  const FavoriteColumnWithModel({required this.index, Key? key})
       : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class FavoriteColumnWithModel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextForBeer(
-            text: beer.first_brewed.toString(),
+            text: beer.firstBrewed.toString(),
             fontSize: 14,
             color: AppColor.textColor,
             maxLines: 1),

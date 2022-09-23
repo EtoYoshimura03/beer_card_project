@@ -1,5 +1,5 @@
 import 'package:beer_card_project/data/datasource/api_datasource.dart';
-import 'package:beer_card_project/domain/serialized_beer.dart';
+import 'package:beer_card_project/domain/beer.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,12 +16,13 @@ class BeerModel extends ChangeNotifier {
 }
 
 class BeerModelProvider extends InheritedNotifier {
-  final BeerModel model;
   const BeerModelProvider({
-    Key? key,
     required this.model,
     required Widget child,
+    Key? key,
   }) : super(key: key, child: child, notifier: model);
+
+  final BeerModel model;
 
   static BeerModelProvider? watch(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<BeerModelProvider>();

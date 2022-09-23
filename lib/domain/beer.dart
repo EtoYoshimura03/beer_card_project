@@ -2,19 +2,19 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
-part 'serialized_beer.g.dart';
+part 'beer.g.dart';
 
 @JsonSerializable()
 class Beer {
   int? id;
   String? name;
   String? tagline;
-  String? first_brewed;
+  String? firstBrewed;
   Beer({
     required this.id,
     required this.name,
     required this.tagline,
-    required this.first_brewed,
+    required this.firstBrewed,
   });
 
   factory Beer.fromJson(Map<String, dynamic> json) => _$BeerFromJson(json);

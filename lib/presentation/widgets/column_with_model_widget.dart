@@ -4,8 +4,9 @@ import 'package:beer_card_project/presentation/app_text.dart';
 import 'package:flutter/material.dart';
 
 class ColumnWithModel extends StatelessWidget {
+  const ColumnWithModel({required this.index, Key? key}) : super(key: key);
+
   final int index;
-  const ColumnWithModel({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class ColumnWithModel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextForBeer(
-            text: beer.first_brewed.toString(),
+            text: beer.firstBrewed.toString(),
             fontSize: 14,
             color: AppColor.textColor,
             maxLines: 1),

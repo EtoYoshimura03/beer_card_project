@@ -1,4 +1,5 @@
 import 'package:beer_card_project/domain/beer_model.dart';
+import 'package:beer_card_project/domain/beer.dart';
 import 'package:beer_card_project/presentation/app_color.dart';
 import 'package:beer_card_project/presentation/images.dart';
 import 'package:beer_card_project/presentation/app_text.dart';
@@ -19,7 +20,23 @@ class _CardsWidgetState extends State<CardsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BeerModelProvider(model: model, child: const _CardsWithData());
+    return Scaffold(
+      body: BeerModelProvider(
+          model: model,
+          child: FutureBuilder(
+            future: BeerModelProvider.watch(context)!.model.getBeer(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator.adaptive();
+              }
+              if (snapshot.hasError) {
+                return Text(snapshot.error.toString());
+              } else {
+                return const _CardsWithData();
+              }
+            },
+          )),
+    );
   }
 }
 

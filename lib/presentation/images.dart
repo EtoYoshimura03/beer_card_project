@@ -17,7 +17,7 @@ abstract class BeerImages {
   static const treuenerPilsner = AssetImage('images/treuener_pilsner.png');
   static const beerCult = AssetImage('images/beer_cult@2x.png');
 
-  static const List<AssetImage> images = [
+  static const images = <AssetImage>[
     viechtacherWeissbier,
     polsterbrauWeissbier,
     gloanerPfahlbock,

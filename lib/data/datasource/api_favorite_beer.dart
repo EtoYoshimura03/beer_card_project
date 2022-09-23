@@ -2,7 +2,7 @@
 import 'package:dio/dio.dart';
 
 import 'package:beer_card_project/data/datasource/app_dependencies.dart';
-import 'package:beer_card_project/domain/serialized_beer.dart';
+import 'package:beer_card_project/domain/beer.dart';
 
 class ApiFavoriteBeer {
   final String ids;

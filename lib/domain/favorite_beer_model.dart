@@ -1,5 +1,5 @@
 import 'package:beer_card_project/data/datasource/api_favorite_beer.dart';
-import 'package:beer_card_project/domain/serialized_beer.dart';
+import 'package:beer_card_project/domain/beer.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
@@ -20,12 +20,13 @@ class FavoriteBeerModel extends ChangeNotifier {
 }
 
 class FavoriteBeerModelProvider extends InheritedNotifier {
-  final FavoriteBeerModel favoriteBeerModel;
   const FavoriteBeerModelProvider({
-    Key? key,
     required this.favoriteBeerModel,
     required Widget child,
+    Key? key,
   }) : super(key: key, child: child, notifier: favoriteBeerModel);
+
+  final FavoriteBeerModel favoriteBeerModel;
 
   static FavoriteBeerModelProvider? watch(BuildContext context) {
     return context
